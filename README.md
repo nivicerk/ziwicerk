@@ -125,7 +125,8 @@ Element_Not_Found_Exception – This is an exception which will be thrown when I
               
               This method Is thrown in the pageObject class for every web element so as to ensure consistency whenever a particular web element is not found on the page
               
-***d) Logger (Log.java) ***– This class contains methods for all log levels which will be used to log in a flat file.  It uses log4j utility to perform logging.  Logging can be done at any stage of your script/framework code to provide a more verbose output to the user who is watching the console.  It consists of the following methods
+
+d) ***Logger (Log.java) ***– This class contains methods for all log levels which will be used to log in a flat file.  It uses log4j utility to perform logging.  Logging can be done at any stage of your script/framework code to provide a more verbose output to the user who is watching the console.  It consists of the following methods
 
         i) info – Logs basic information logs on the console
 
@@ -138,10 +139,9 @@ Element_Not_Found_Exception – This is an exception which will be thrown when I
         v) fatal – Logs fatal errors on the console like service down, browser crash, etc.
 
 
-***e) 	Project Constants (Project_Constants.java)** – This static class contains project specific constants which will remain static throughout their lifetime.  In our project, the location of the drivers (chromedriver, iedriver, etc) have been made constant and will never change.
+e) ***	Project Constants (Project_Constants.java)*** – This static class contains project specific constants which will remain static throughout their lifetime.  In our project, the location of the drivers (chromedriver, iedriver, etc) have been made constant and will never change.
 
-
-***f)	Reusable Common Actions (Common_Actions.java) ***– This class contains methods which are reusable across various web applications.  Consists of the following methods:
+f)	***Reusable Common Actions (Common_Actions.java) ***– This class contains methods which are reusable across various web applications.  Consists of the following methods:
 
 1) openBrowser
 
