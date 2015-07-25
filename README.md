@@ -1,13 +1,13 @@
 ReadMe Notes
 
 
-*Summary:*
+***Summary:***
 The following notes explain the automation strategy for Walmart end to end e-commerce transaction
 
-*Problem Statement:*
+***Problem Statement:***
 Automate an end to end user e-commerce transaction flow using any open source tool for a website with an existing customer on chrome or safari browser
 
-*Technology Used:*
+***Technology Used:***
 
 1) Java – 1.7
 
@@ -20,7 +20,7 @@ Automate an end to end user e-commerce transaction flow using any open source to
 5) Log4j utility – For Logging purposes
 
 
-*Framework Used:*
+***Framework Used:***
 
 1) Page Object Pattern (POP)
 
@@ -31,16 +31,16 @@ Automate an end to end user e-commerce transaction flow using any open source to
 4) Custom Exception Handling model
 
 
-*Solution:*
+***Solution:***
 
-*1) Creating Page Objects*
+***1) Creating Page Objects***
 
 a) Created Walmart_java page object class under pageObjects package
 
 b) In this class, identified all the web elements which will be used for performing the E2E transaction flow for Walmart
 
 
-*2) Create Module Functions*
+***2) Create Module Functions***
 
 Created modular functions needed to accomplish the end-to-end transaction flow
 
@@ -59,7 +59,7 @@ f) removeItemFromCart
 g) logout
 
 
-*3) Create Testscript*
+***3) Create Testscript***
 
 Created testscript using testNG annotations with 3 methods overridden from the Testcase class (abstract class defined in runManager package):
 
@@ -70,7 +70,7 @@ b) Main – This method contains the meat of your logic, i.e. how I will perform
 c) postScript – This method contains any logic which one wants to execute as a post condition.  For e.g., this method could contain actions like browser closing, database connections cleanup, bringing back the test to the base state (so the following tests are not impacted by this one), etc
 
 
-*4)	Other Framework components*
+***4)	Other Framework components***
 
 Other framework components include the following:
 
@@ -80,17 +80,17 @@ Utility consists of the following class files with their respective methods:
 
 a) ***Excel Utils.java*** : This file has been made with the intention to provide data driven ability to the framework.  It uses the apache-poi library and its associated methods.  Following are the methods used in this class:
 
-       Excel_Utils – Constructor which provides the connection to the intended excel testdata 
+Excel_Utils – Constructor which provides the connection to the intended excel testdata 
 
-          i)	Arguments – Path (String) – Path of the testdata sheet to load; Sheetname (String) – The sheet number of the                   excel sheet to connect to
+       i)	Arguments – Path (String) – Path of the testdata sheet to load; Sheetname (String) – The sheet number of the                   excel sheet to connect to
 
-          ii)	Return type – Object of type Excel_Utils
+       ii)	Return type – Object of type Excel_Utils
 
-          iii)	Exceptions – IOStream exception related to file handling
+       iii)	Exceptions – IOStream exception related to file handling
 
 
 
-      getCellData – This method provides the value of the column which has been requested
+getCellData – This method provides the value of the column which has been requested
           
           i)	Arguments – obj (Object) – The testScript class which is loaded for retrieval of test data; Field (String) – the               column for which the value needs to be retrieved from the test data
 
@@ -102,18 +102,18 @@ a) ***Excel Utils.java*** : This file has been made with the intention to provid
                 Finally, I fetch the cell data using the row and column index from the bound Excel worksheet, and return it to the calling function
   
   
-  b) TestData Loader – This is a static class which loads the testdata file, and returns an object of type Excel_Utils, so that Ican call the methods of Excel_Utils class and get the test data for any column I need.  Following class method is used in this:
+  ***b) TestData Loader*** – This is a static class which loads the testdata file, and returns an object of type Excel_Utils, so that Ican call the methods of Excel_Utils class and get the test data for any column I need.  Following class method is used in this:
 
 loadTestData – loads the testdata file, and returns object of type Excel_Utils to the caller method
 
-          i)	Arguments – obj (Object)	- The testscript class for which the testdata needs to be loaded
+        i)	Arguments – obj (Object)	- The testscript class for which the testdata needs to be loaded
    
-         ii)	Return type – Excel_Utils – Object of type Excel_Utils
+       ii)	Return type – Excel_Utils – Object of type Excel_Utils
    
-        iii)	Exceptions – Unknown
+       iii)	Exceptions – Unknown
 
 
-c) Custom Exception (Element_Not_Found_Exception) – The idea behind creating custom exceptions is to provide the user ease of access to troubleshoot his test script.  If the custom exceptions are not made, the user would have to deal with high level technical exceptions throd by the tool which will be much cumbersome to analyze/troubleshoot.  Following custom exception has been made:
+***c) Custom Exception (Element_Not_Found_Exception)*** – The idea behind creating custom exceptions is to provide the user ease of access to troubleshoot his test script.  If the custom exceptions are not made, the user would have to deal with high level technical exceptions throd by the tool which will be much cumbersome to analyze/troubleshoot.  Following custom exception has been made:
 
 Element_Not_Found_Exception – This is an exception which will be thrown when I catch a Selenium specific exception of type “NoSuchElementException”
 
@@ -125,7 +125,7 @@ Element_Not_Found_Exception – This is an exception which will be thrown when I
               
               This method Is thrown in the pageObject class for every web element so as to ensure consistency whenever a particular web element is not found on the page
               
-d) Logger (Log.java) – This class contains methods for all log levels which will be used to log in a flat file.  It uses log4j utility to perform logging.  Logging can be done at any stage of your script/framework code to provide a more verbose output to the user who is watching the console.  It consists of the following methods
+***d) Logger (Log.java) ***– This class contains methods for all log levels which will be used to log in a flat file.  It uses log4j utility to perform logging.  Logging can be done at any stage of your script/framework code to provide a more verbose output to the user who is watching the console.  It consists of the following methods
 
         i) info – Logs basic information logs on the console
 
@@ -138,10 +138,10 @@ d) Logger (Log.java) – This class contains methods for all log levels which wi
         v) fatal – Logs fatal errors on the console like service down, browser crash, etc.
 
 
-e) 	Project Constants (Project_Constants.java) – This static class contains project specific constants which will remain static throughout their lifetime.  In our project, the location of the drivers (chromedriver, iedriver, etc) have been made constant and will never change.
+***e) 	Project Constants (Project_Constants.java)** – This static class contains project specific constants which will remain static throughout their lifetime.  In our project, the location of the drivers (chromedriver, iedriver, etc) have been made constant and will never change.
 
 
-f)	Reusable Common Actions (Common_Actions.java) – This class contains methods which are reusable across various web applications.  Consists of the following methods:
+***f)	Reusable Common Actions (Common_Actions.java) ***– This class contains methods which are reusable across various web applications.  Consists of the following methods:
 
 1) openBrowser
 
@@ -216,7 +216,7 @@ This section explains how this framework would work end to end (with the assumpt
 
 
 
-*Main explanation*
+***Main explanation***
 
 Now, after execution of prescript method, TestNG executes its next annotation which is @Test. I have defined main method (overridden from runManager/Testcase.java), which works as follows:
 
@@ -229,7 +229,7 @@ Now, after execution of prescript method, TestNG executes its next annotation wh
   
   
   
-*PostScript explanation*
+***PostScript explanation***
 
 Now, after execution of prescript method, TestNG executes its next annotation which is @AfterMethod.  I have defined postScript method (overridden from runManager/Testcase.java), which works as follows:
 •	In this method, I can execute Common_Actions.closeBrowser method to trigger the exit point of the script.
@@ -237,9 +237,9 @@ Now, after execution of prescript method, TestNG executes its next annotation wh
 After this, TestNG will have no more annotation to run, and hence it will finish execution, and generate its report on the console.
 
 
-Time constraint: If I had more time, I would have implemented the mobile solution.
+***Time constraint***: If I had more time, I would have implemented the mobile solution.
 Also, I would have added more logger capabilities. 
 
-Issues: There is a problem with the mobile.walmart.com site. Sometimes it redirects to walmart.com. Just wanted to highlight this issue.
+***Issues***: There is a problem with the mobile.walmart.com site. Sometimes it redirects to walmart.com. Just wanted to highlight this issue.
 
 
