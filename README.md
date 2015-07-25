@@ -1,13 +1,14 @@
 ReadMe Notes
-Note: Please view this ReadMe file in Fullscreen.
 
-Summary:
+
+*Summary:*
 The following notes explain the automation strategy for Walmart end to end e-commerce transaction
 
-Problem Statement:
+*Problem Statement:*
 Automate an end to end user e-commerce transaction flow using any open source tool for a website with an existing customer on chrome or safari browser
 
-Technology Used: 
+*Technology Used:*
+
 1) Java – 1.7
 
 2) Selenium Webdriver – 2.45
@@ -19,7 +20,7 @@ Technology Used:
 5) Log4j utility – For Logging purposes
 
 
-Framework Used:
+*Framework Used:*
 
 1) Page Object Pattern (POP)
 
@@ -30,15 +31,16 @@ Framework Used:
 4) Custom Exception Handling model
 
 
-Solution:
+*Solution:*
 
-1) Creating Page Objects
+*1) Creating Page Objects*
 
 a) Created Walmart_java page object class under pageObjects package
 
 b) In this class, identified all the web elements which will be used for performing the E2E transaction flow for Walmart
 
-2) Create Module Functions
+
+*2) Create Module Functions*
 
 Created modular functions needed to accomplish the end-to-end transaction flow
 
@@ -57,7 +59,7 @@ f) removeItemFromCart
 g) logout
 
 
-3) Create Testscript
+*3) Create Testscript*
 
 Created testscript using testNG annotations with 3 methods overridden from the Testcase class (abstract class defined in runManager package):
 
@@ -68,7 +70,7 @@ b) Main – This method contains the meat of your logic, i.e. how I will perform
 c) postScript – This method contains any logic which one wants to execute as a post condition.  For e.g., this method could contain actions like browser closing, database connections cleanup, bringing back the test to the base state (so the following tests are not impacted by this one), etc
 
 
-4)	Other Framework components
+*4)	Other Framework components*
 
 Other framework components include the following:
 
